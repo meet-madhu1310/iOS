@@ -44,6 +44,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        timer?.invalidate()
+        stopWatchLabel.text = "00:00:00"
+        counter = 1.0
+    }
+    
     deinit {
         if let timer = self.timer {
             timer.invalidate()
