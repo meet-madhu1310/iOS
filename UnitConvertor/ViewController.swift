@@ -41,14 +41,7 @@ class ViewController: UIViewController {
 
     }
     
-    func initialPickerRow() -> Int {
-        
-        if let savedRow = UserDefaults.standard.object(forKey: userDefaultLastRowKey) as? Int {
-            return savedRow
-        }
-        
-        return temperaturePicker.numberOfRows(inComponent: 0) / 2
-    }
+    
     
     func saveSelectedRow(row: Int) {
         let defaults = UserDefaults.standard
