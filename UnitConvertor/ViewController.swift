@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var temperaturePicker: UIPickerView!
     @IBOutlet var temperatureRange: TemperatureRange!
-    @IBOutlet weak var tempValuesSegment: UISegmentedControl!
+    //1
     
     let unitConverter = UnitConverter()
     let userDefaultLastRowKey = "defaultCelciusPickerRow"
@@ -31,17 +31,16 @@ class ViewController: UIViewController {
 
     }
     
-    @IBAction func temperatureSegmentControl(_ sender: UISegmentedControl) {
-
-        if sender.selectedSegmentIndex == 0 {
-            temperaturePicker.reloadAllComponents()
-        } else {
-            temperaturePicker.reloadAllComponents()
+    //2
+    
+    func initialPickerRow() -> Int {
+        
+        if let savedRow = UserDefaults.standard.object(forKey: userDefaultLastRowKey) as? Int {
+            return savedRow
         }
-
+        
+        return temperaturePicker.numberOfRows(inComponent: 0) / 2
     }
-    
-    
     
     func saveSelectedRow(row: Int) {
         let defaults = UserDefaults.standard
@@ -49,16 +48,7 @@ class ViewController: UIViewController {
         defaults.synchronize()
     }
     
-    func displayConvertedTemperatureForRow(row: Int) {
-        let celciusValues = temperatureRange.values[row]
-        let farenheitValues = temperatureRange.values[row]
-        
-        if tempValuesSegment.selectedSegmentIndex == 0{
-            temperatureLabel.text = "\(unitConverter.degreeFarenheit(degreeCelcius: celciusValues))°F"
-        } else {
-            temperatureLabel.text = "\(unitConverter.degreeCelcius(degreeFarenheit: farenheitValues))°C"
-        }
-    }
+    //3
 
 }
 
@@ -75,10 +65,7 @@ extension ViewController: UIPickerViewDelegate {
     
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        displayConvertedTemperatureForRow(row: row)
-        saveSelectedRow(row: row)
-    }
+    //4
     
 }
 
