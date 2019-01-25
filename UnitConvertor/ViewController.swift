@@ -82,10 +82,10 @@ extension ViewController: UIPickerViewDelegate {
     
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        displayConvertedTemperatureForRow(row: row)
-        saveSelectedRow(row: row)
-    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        displayConvertedTemperatureForRow(row: row)
+//        saveSelectedRow(row: row)
+//    }
     
 }
 
