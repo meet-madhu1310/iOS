@@ -13,7 +13,7 @@ class UnitConverter {
         return Int(1.8 * Float(degreeCelcius) + 32.0)
     }
     
-    func degreeCelcius(degreeFarenheit: Int) -> Int {
-        return Int((Float(degreeFarenheit) - 32) / 1.8)
-    }
+//    func degreeCelcius(degreeFarenheit: Int) -> Int {
+//        return Int((Float(degreeFarenheit) - 32) / 1.8)
+//    }
 }

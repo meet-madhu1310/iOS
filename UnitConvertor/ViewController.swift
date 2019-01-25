@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var temperaturePicker: UIPickerView!
     @IBOutlet var temperatureRange: TemperatureRange!
-    @IBOutlet weak var tempValuesSegment: UISegmentedControl!
+    //@IBOutlet weak var tempValuesSegment: UISegmentedControl!
     
     let unitConverter = UnitConverter()
     let userDefaultLastRowKey = "defaultCelciusPickerRow"
@@ -31,13 +31,13 @@ class ViewController: UIViewController {
 
     }
     
-    @IBAction func temperatureSegmentControl(_ sender: UISegmentedControl) {
-
-        if sender.selectedSegmentIndex == 0 {
-            temperaturePicker.reloadAllComponents()
-        } else {
-            temperaturePicker.reloadAllComponents()
-        }
+//    @IBAction func temperatureSegmentControl(_ sender: UISegmentedControl) {
+//
+//        if sender.selectedSegmentIndex == 0 {
+//            temperaturePicker.reloadAllComponents()
+//        } else {
+//            temperaturePicker.reloadAllComponents()
+//        }
 
     }
     
@@ -58,13 +58,13 @@ class ViewController: UIViewController {
     
     func displayConvertedTemperatureForRow(row: Int) {
         let celciusValues = temperatureRange.values[row]
-        let farenheitValues = temperatureRange.values[row]
+        //let farenheitValues = temperatureRange.values[row]
         
-        if tempValuesSegment.selectedSegmentIndex == 0{
+        //if tempValuesSegment.selectedSegmentIndex == 0{
             temperatureLabel.text = "\(unitConverter.degreeFarenheit(degreeCelcius: celciusValues))°F"
-        } else {
-            temperatureLabel.text = "\(unitConverter.degreeCelcius(degreeFarenheit: farenheitValues))°C"
-        }
+        //} else {
+            //temperatureLabel.text = "\(unitConverter.degreeCelcius(degreeFarenheit: farenheitValues))°C"
+        //}
     }
 
 }
@@ -74,10 +74,10 @@ extension ViewController: UIPickerViewDelegate {
     //Data delegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
-        if tempValuesSegment.selectedSegmentIndex == 0{
+        //if tempValuesSegment.selectedSegmentIndex == 0{
             return "\(temperatureRange.values[row])°C"
-        } else {
-            return "\(temperatureRange.values[row])°F"
+//        } else {
+//            return "\(temperatureRange.values[row])°F"
         }
     
     }
